@@ -7,7 +7,7 @@ import net.minestom.server.entity.LivingEntity;
 import net.minestom.server.entity.attribute.Attribute;
 import net.minestom.server.entity.attribute.AttributeModifier;
 import net.minestom.server.entity.attribute.AttributeOperation;
-import net.minestom.server.item.ItemComponent;
+import net.minestom.server.component.DataComponents;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import org.jetbrains.annotations.Nullable;
@@ -103,8 +103,8 @@ public enum Tool {
 	
 	private static boolean hasDefaultAttributes(ItemStack stack) {
 		// When modifiers tag is not empty, default modifiers are not
-		return !stack.has(ItemComponent.ATTRIBUTE_MODIFIERS)
-				|| Objects.requireNonNull(stack.get(ItemComponent.ATTRIBUTE_MODIFIERS)).modifiers().isEmpty();
+		return !stack.has(DataComponents.ATTRIBUTE_MODIFIERS)
+				|| Objects.requireNonNull(stack.get(DataComponents.ATTRIBUTE_MODIFIERS)).modifiers().isEmpty();
 	}
 	
 	public boolean isAxe() {

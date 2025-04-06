@@ -21,7 +21,7 @@ import net.minestom.server.event.item.PlayerBeginItemUseEvent;
 import net.minestom.server.event.item.PlayerCancelItemUseEvent;
 import net.minestom.server.event.trait.EntityInstanceEvent;
 import net.minestom.server.item.ItemAnimation;
-import net.minestom.server.item.ItemComponent;
+import net.minestom.server.component.DataComponents;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import net.minestom.server.item.component.EnchantmentList;
@@ -76,7 +76,7 @@ public class VanillaBowFeature implements BowFeature, RegistrableFeature {
 			ItemStack stack = event.getItemStack();
 			if (stack.material() != Material.BOW) return;
 			
-			EnchantmentList enchantmentList = stack.get(ItemComponent.ENCHANTMENTS);
+			EnchantmentList enchantmentList = stack.get(DataComponents.ENCHANTMENTS);
 			assert enchantmentList != null;
 			
 			boolean infinite = player.getGameMode() == GameMode.CREATIVE

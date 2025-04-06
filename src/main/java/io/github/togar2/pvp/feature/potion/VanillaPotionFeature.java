@@ -22,7 +22,7 @@ import net.minestom.server.event.item.PlayerFinishItemUseEvent;
 import net.minestom.server.event.player.PlayerTickEvent;
 import net.minestom.server.event.player.PlayerUseItemEvent;
 import net.minestom.server.event.trait.EntityInstanceEvent;
-import net.minestom.server.item.ItemComponent;
+import net.minestom.server.component.DataComponents;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import net.minestom.server.potion.Potion;
@@ -76,7 +76,7 @@ public class VanillaPotionFeature implements PotionFeature, RegistrableFeature {
 			
 			triggerDrinkingSound(player);
 			
-			List<Potion> potions = effectFeature.getAllPotions(stack.get(ItemComponent.POTION_CONTENTS));
+			List<Potion> potions = effectFeature.getAllPotions(stack.get(DataComponents.POTION_CONTENTS));
 			
 			// Apply the potions
 			for (Potion potion : potions) {
@@ -91,7 +91,7 @@ public class VanillaPotionFeature implements PotionFeature, RegistrableFeature {
 			}
 			
 			if (player.getGameMode() != GameMode.CREATIVE) {
-				ItemStack remainder = stack.get(ItemComponent.USE_REMAINDER);
+				ItemStack remainder = stack.get(DataComponents.USE_REMAINDER);
 				
 				if (remainder != null && !remainder.isAir()) {
 					if (stack.amount() == 1) {
